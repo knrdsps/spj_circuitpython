@@ -1,5 +1,5 @@
 # spj_circuitpython
-- SPJ Circuit Python Course
+SPJ Circuit Python Course
 - Lesson 1 - dotstar
 - Lesson 2 - switches
 - Lesson 3 - drama
