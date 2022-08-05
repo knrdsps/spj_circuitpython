@@ -17,21 +17,21 @@ BLUE = (0, 0, 255)
 PURPLE = (180, 0, 255)
 WHITE = (255, 255, 255)
 
-switchred = DigitalInOut(board.D1)
-switchred.direction = Direction.INPUT
-switchred.pull = Pull.DOWN
+switchblue = DigitalInOut(board.D1)
+switchblue.direction = Direction.INPUT
+switchblue.pull = Pull.DOWN
 
-switchyellow = DigitalInOut(board.D2)
-switchyellow.direction = Direction.INPUT
-switchyellow.pull = Pull.DOWN
-
-switchgreen = DigitalInOut(board.D4)
+switchgreen = DigitalInOut(board.D2)
 switchgreen.direction = Direction.INPUT
 switchgreen.pull = Pull.DOWN
 
-switchblue = DigitalInOut(board.D3)
-switchblue.direction = Direction.INPUT
-switchblue.pull = Pull.DOWN
+switchyellow = DigitalInOut(board.D3)
+switchyellow.direction = Direction.INPUT
+switchyellow.pull = Pull.DOWN
+
+switchred = DigitalInOut(board.D4)
+switchred.direction = Direction.INPUT
+switchred.pull = Pull.DOWN
 
 while True:
     if switchred.value:
