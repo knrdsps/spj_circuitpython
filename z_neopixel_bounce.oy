@@ -1,0 +1,46 @@
+import time
+import board
+import neopixel
+
+num_pixels = 8  # Number of NeoPixels
+pixelpin = board.A2  # NeoPixels pin. For Gemma M0 = D1, Trinket M0 = D4
+pixels = neopixel.NeoPixel(pixelpin, num_pixels, brightness=0.02, auto_write=False)
+pos = 0  # position
+direction = 1  # direction of "eye"
+
+RED = (255, 0, 0)
+ORANGE = (255, 128, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+
+while True:
+    pixels[pos - 2] = (RED)  # Dark red
+    pixels[pos - 1] = (ORANGE)  # Medium red
+    pixels[pos] = (YELLOW)  # brightest
+    pixels[pos + 1] = (ORANGE)  # Medium red
+
+    if (pos + 2) < num_pixels:
+        pixels[pos + 2] = (RED)
+
+    pixels.show()
+    time.sleep(0.09)
+
+    # Rather than being sneaky and erasing just the tail pixel,
+    # it's easier to erase it all and draw a new one next time.
+    for j in range(-2, 2):
+        pixels[pos + j] = (0, 0, 0)
+        if (pos + 2) < num_pixels:
+            pixels[pos + 2] = (0, 0, 0)
+
+    # Bounce off ends of strip
+    pos += direction
+    if pos < 0:
+        pos = 1
+        direction = -direction
+    elif pos >= (num_pixels - 1):
+        pos = num_pixels - 2
+        direction = -direction
