@@ -1,18 +1,26 @@
 import board
+import time
 from digitalio import DigitalInOut, Direction, Pull
+import adafruit_dotstar
 
-btn = DigitalInOut(board.D4)
-btn.direction = Direction.INPUT
-btn.pull = Pull.DOWN
+led = adafruit_dotstar.DotStar(board.APA102_SCK, board.APA102_MOSI, 1)
+led.brightness = 0.1
 
-prev_state = btn.value
+switchyellow = DigitalInOut(board.D3)
+switchyellow.direction = Direction.INPUT
+switchyellow.pull = Pull.DOWN
+
+button_state = False
 
 while True:
-    cur_state = btn.value
-    if cur_state != prev_state:
-        if not cur_state:
-            print("BTN is up")
+    if switchyellow.value:
+        if button_state:
+            button_state = False
+            led.value = False
+            led[0] = (0, 0, 0)
         else:
-            print("BTN is down")
-
-    prev_state = cur_state
+            button_state = True
+            led.value = True
+            led[0] = (255, 255, 0)
+        
+    time.sleep(0.3)
