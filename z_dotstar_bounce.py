@@ -1,15 +1,15 @@
 import board
-from digitalio import DigitalInOut, Direction,
 import adafruit_dotstar
+from digitalio import DigitalInOut, Direction, Pull
 from adafruit_debouncer import Debouncer
-
-pin = digitalio.DigitalInOut(board.D4)
-pin.direction = digitalio.Direction.INPUT
-pin.pull = digitalio.Pull.DOWN
-switch = Debouncer(pin)
 
 led = adafruit_dotstar.DotStar(board.APA102_SCK, board.APA102_MOSI, 1)
 led.brightness = 0.1
+
+pin = DigitalInOut(board.D4)
+pin.direction = Direction.INPUT
+pin.pull = Pull.DOWN
+switch = Debouncer(pin)
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
