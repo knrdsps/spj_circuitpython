@@ -1,5 +1,5 @@
 import board
-import digitalio
+from digitalio import DigitalInOut, Direction,
 import adafruit_dotstar
 from adafruit_debouncer import Debouncer
 
@@ -12,13 +12,7 @@ led = adafruit_dotstar.DotStar(board.APA102_SCK, board.APA102_MOSI, 1)
 led.brightness = 0.1
 
 RED = (255, 0, 0)
-ORANGE = (255, 128, 0)
-YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
-CYAN = (0, 255, 255)
-BLUE = (0, 0, 255)
-PURPLE = (180, 0, 255)
-WHITE = (255, 255, 255)
 
 while True:
     switch.update()
