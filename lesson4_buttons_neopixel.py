@@ -39,17 +39,17 @@ while True:
         pixels.show()
         time.sleep(0.5)
 
-    if switchyellow.value:
+    elif switchyellow.value:
         pixels.fill(YELLOW)
         pixels.show()
         time.sleep(0.5)
 
-    if switchgreen.value:
+    elif switchgreen.value:
         pixels.fill(GREEN)
         pixels.show()
         time.sleep(0.5)
 
-    if switchblue.value:
+    elif switchblue.value:
         pixels.fill(BLUE)
         pixels.show()
         time.sleep(0.5)
