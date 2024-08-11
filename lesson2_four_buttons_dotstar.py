@@ -26,13 +26,13 @@ while True:
     if switchyellow.value:
         led.value = True
         led[0] = (255, 0, 0)
-    if switchorange.value:
+    elif switchorange.value:
         led.value = True
         led[0] = (0, 255, 0)
-    if switchblue.value:
+    elif switchblue.value:
         led.value = True
         led[0] = (0, 0, 255)
-    if switchgreen.value:
+    elif switchgreen.value:
         led.value = True
         led[0] = (255, 255, 255)
     else:
